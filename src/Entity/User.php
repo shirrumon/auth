@@ -41,6 +41,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $surname;
+
+    /**
+     * @ORM\Column(type="string", length=11)
+     */
+    private $pesel;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $programmingLanguage;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthdate;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +159,50 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+        return $this;
+    }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+        return $this;
+    }
+
+    public function getPesel(): ?string
+    {
+        return $this->pesel;
+    }
+
+    public function setPesel(string $pesel): self
+    {
+        $this->pesel = $pesel;
+        return $this;
+    }
+
+    public function getProgrammingLanguage(): ?string
+    {
+        return $this->programmingLanguage;
+    }
+
+    public function setProgrammingLanguage(string $programmingLanguage): self
+    {
+        $this->programmingLanguage = $programmingLanguage;
+        return $this;
+    }
+
+    public function getBirthDate(): ?object
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthDate(object $birthdate): self
+    {
+        $this->birthdate = $birthdate;
         return $this;
     }
 }
